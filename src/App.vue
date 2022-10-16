@@ -1,26 +1,26 @@
 <template>
   <div class="app">
-    <Header />
-      <div class="container">
-        <router-view />
-      </div>
-  <Footer />
+    <div class="navbar-logo">
+      <img class="logo-img" src="./assets/logo.png" alt="logo" @click="$router.push('/')" />
+    </div>
+
+    <div class="container">
+      <router-view />
+    </div>
+
   </div>
 </template>
 
 
 <script>
-import Header from '@/components/Header.vue';
-import Footer from '@/components/Footer.vue';
-
 export default {
   components: {
-    Header, Footer
+
   },
   data() {
-      return {
-      }      
-   },
+    return {
+    }
+  },
 }
 </script>
 
@@ -41,19 +41,37 @@ a {
   color: inherit;
 }
 
-.app {
+body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: rgb(1, 0, 23);
   color: #fff
 }
 
 .container {
+  margin: 0 auto;
   max-width: 1200px;
-  padding: 0 20px;
+  padding: 0 20px 50px;
 }
 
 .wrapper-content {
   min-height: 70vh;
   margin-top: 30px;
+}
+
+.navbar-logo {
+  width: 480px;
+  margin: 0 auto;
+}
+
+@media (max-width: 520px) {
+  .navbar-logo {
+    width: 260px;
+  }
+}
+
+.logo-img {
+  width: 100%;
+  cursor: pointer;
+  ;
 }
 </style>

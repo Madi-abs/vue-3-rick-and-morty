@@ -1,19 +1,8 @@
-# rick_and_morty
+SPA с использованием API https://rickandmortyapi.com/
 
-## Project setup
-```
-npm install
-```
+1. Адаптив до 280px
+2. Реализован поиск по имени и динамическая навигация
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+https://gleeful-kangaroo-e43736.netlify.app
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

@@ -7,14 +7,10 @@
       <span class="card-text">{{ status }}</span>
       <span class="card-text">{{ species }}</span>
       <span class="card-text">{{ gender }}</span>
-      <!-- <span class="card-text">{{ location.name }}</span>
-      <span class="card-text">{{ episode }}</span> -->
 
       <div class="card-body">
-         <!-- <router-link v-if="link" class="link" style="display: block; margin-top:15px" :to="link">
-            See more
-         </router-link> -->
-         <button @click="$router.push(`/${id}`)" class="btn">
+
+         <button @click="$router.push(`character/${id}`)" class="btn">
             See more
          </button>
       </div>
@@ -24,6 +20,7 @@
 
 <script>
 export default {
+   name: 'Card',
    props: {
       id: {
          type: Number,
@@ -57,7 +54,12 @@ export default {
          type: String,
       },
       link: {
-         type: String, 
+         type: String,
+      }
+   },
+   methods: {
+      charDetails() {
+         this.$router.push({ name: 'CharDetailsPage', params: { id: this.char.id } })
       }
    }
 }
@@ -66,45 +68,45 @@ export default {
 
 <style scoped>
 .card {
-  width: 300px;
-  display: inline-block;
-  margin: auto;
-  border-radius: 50px;
-  position: relative;
-  text-align: center;
-  box-shadow: -1px 15px 30px -12px rgba(50, 50, 50, 0.2);
-  background-color: #22A2BD;
-  color: black;
+   width: 300px;
+   display: inline-block;
+   margin: auto;
+   border-radius: 50px;
+   position: relative;
+   text-align: center;
+   box-shadow: -1px 15px 30px -12px rgba(50, 50, 50, 0.2);
+   background-color: #22A2BD;
+   color: black;
 }
 
 .card-img__wrapper {
-  position: relative;
-  height: 300px;
-  border-top-left-radius: 50px;
-  border-top-right-radius:50px;
+   position: relative;
+   height: 300px;
+   border-top-left-radius: 50px;
+   border-top-right-radius: 50px;
 }
 
 .card-img {
    width: 100%;
    border-top-left-radius: 50px;
-   border-top-right-radius:50px;
+   border-top-right-radius: 50px;
 }
 
 .card-title {
-  display: block;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  font-size: 26px;
-  font-weight: 900;
-  color: #fff;
+   display: block;
+   margin-top: 30px;
+   margin-bottom: 20px;
+   font-size: 26px;
+   font-weight: 900;
+   color: #fff;
 }
 
 .card-text {
-  display: block;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 16px;
-  font-weight: 500;
+   display: block;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   font-size: 16px;
+   font-weight: 500;
 }
 
 .btn {

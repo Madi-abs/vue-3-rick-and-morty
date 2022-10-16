@@ -3,32 +3,24 @@
       <input v-model="searchQuery" class="input" placeholder="Search..." />
 
       <div class="card__wrapper">
-         <Card v-for="char in searchedChars" :key="char.id" 
-            :id="char.id"
-            :name="char.name" 
-            :status="char.status" 
-            :species="char.species" 
-            :gender="char.gender" 
-            :imgUrl="char.image" 
-            :link="char.url"
-         />
+         <Card v-for="char in searchedChars" :key="char.id" :id="char.id" :name="char.name" :status="char.status"
+            :species="char.species" :gender="char.gender" :imgUrl="char.image" :link="char.url" />
       </div>
+
    </div>
 </template>
 
 
 <script>
-import Card from '@/components/UI/Card';
-
+import Card from '@/components/Card';
 import axios from 'axios';
-
 
 export default {
    components: { Card },
    data() {
       return {
          chars: [],
-         searchQuery: ''
+         searchQuery: '',
       }
    },
    methods: {
@@ -36,11 +28,10 @@ export default {
          try {
             const response = await axios.get('https://rickandmortyapi.com/api/character');
             this.chars = response.data.results;
-            // console.log(response);
-         } catch(err) {
-            alert('Произошла ошибка!')
+         } catch (err) {
+            console.log('Произошла ошибка в async fetchChars!')
          }
-      }
+      },
    },
    computed: {
       searchedChars() {
@@ -51,7 +42,7 @@ export default {
          } else {
             return this.chars;
          }
-      }
+      },
    },
    mounted() {
       this.fetchChars();
@@ -76,7 +67,7 @@ export default {
    padding: 10px 15px;
    outline: none;
    font-size: 18px;
-   }
+}
 </style>
 
 
